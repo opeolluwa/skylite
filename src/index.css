@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+#app {
+    position: relative;
+    height: stretch;
+}
+
+#app #main,
+#app footer {
+    padding: 20px 50px !important;
+}
+
+#app footer {
+    padding: 12px 50px !important;
+    padding-right: 10px !important;
+    font-size: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+#app footer button {
+    border-radius: 2px;
+    width: 70px;
+    padding: 1px;
+    border: none;
+    background: #b7b7b7;
+
+}
+
+#app footer button:disabled {
+    background: #bbb;
+}
+
+#app footer button:hover {
+    filter: drop-shadow(0 0 2em #747bff);
+}
+
+
