@@ -22,11 +22,12 @@ tauri = {version = "1.2", features = ["api-all"] }
 tauri-build = {version = "1.2", features = [] }
 
 [dependencies]
+ipc = {path = "./ipc"}
 lazy_static = "1.4.0"
 serde = {version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 server = {path = "./server"}
-tauri = {version = "1.2", features = [ "process-relaunch", "process-exit", "shell-open"] }
+tauri = {version = "1.2", features = [ "dialog-message", "process-relaunch", "process-exit", "shell-open"] }
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem
 # DO NOT REMOVE!!

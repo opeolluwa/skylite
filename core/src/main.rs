@@ -1,12 +1,15 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+use ipc;
 use server;
 
-// Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-#[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
+use tauri::Manager;
+
+// the payload type must implement `Serialize` and `Clone`.
+#[derive(Clone, serde::Serialize)]
+struct Payload {
+    message: String,
 }
 
 fn main() {
@@ -14,7 +17,21 @@ fn main() {
     tauri::async_runtime::spawn(server::run());
 
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet])
+        .setup(|app| {
+            // emit the `event-name` event to all webview windows on the frontend
+            app.emit_all(
+                "device-connected",
+                Payload {
+                    message: "contact made on the frontend".into(),
+                },
+            )
+            .unwrap();
+            Ok(())
+        })
+        .invoke_handler(tauri::generate_handler![
+            ipc::server_address::server,
+            ipc::wifi::is_connected_to_wifi
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

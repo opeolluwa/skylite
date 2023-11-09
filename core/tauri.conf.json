@@ -7,7 +7,7 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "share",
+    "productName": "skylite",
     "version": "0.1.1"
   },
   "tauri": {
@@ -22,6 +22,14 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "dialog": {
+        "all": false,
+        "ask": false,
+        "confirm": false,
+        "message":true,
+        "open": false,
+        "save": false
       }
     },
     "bundle": {
@@ -33,7 +41,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.share.app",
+      "identifier": "com.skylite.app",
       "targets": "all"
     },
     "security": {
@@ -46,7 +54,7 @@
       {
         "fullscreen": false,
         "resizable": false,
-        "title": "share",
+        "title": "skylite",
         "width": 800,
         "height": 600
       }
