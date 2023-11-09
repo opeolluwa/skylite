@@ -51,7 +51,7 @@ await message(`visit ${serverAddress.value} on the connected device`, { title: '
 
   </div>
   <div v-else class="flex flex-col items-center justify-center h-[100%]">
-    <div class="flex flex-col items-center justify-center mt-[35px]">
+    <div class="flex flex-col items-center justify-center">
       <div>
         <vue-qr bgSrc='/satellite.png' dot-scale="1" class="border-r-2 mb-3" :text="serverAddress" :size="200"></vue-qr>
       </div>

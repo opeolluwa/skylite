@@ -1,74 +1,54 @@
- # Title
+# Skylite
 
 - [Description](#description)
 - [Getting Started](#getting-started)
   - [Dependencies](#dependencies)
   - [Installing](#installing)
   - [Executing program](#executing-program)
-- [Documentation](#documentation)
-- [Help](#help)
-- [Authors](#authors)
-- [Version History](#version-history)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
 ## Description
 
-Description
+Cross platform file sharing application application for desktop and wifi-enabled devices
 
 ## Getting Started
 
 ### Dependencies
 
-- Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-- ex. Windows 10
+To run the application in development, you'll need the following dependencies:
+
+- [Node.js](https://nodejs.org) - A JavaScript Runtime environment
+- [Yarn](https://yarnpkg.com/) - A fast, secure and reliable package manager for Node.js
+- [Rust v1.70 or greater](https://www.rust-lang.org/) - A language empowering everyone
+  to build reliable and efficient software.
+
+In addition, this project uses Tauri v1.3, see [prerequisite](https://tauri.app/v1/guides/getting-started/prerequisites/) for your operating system.
+
+Once you have the dependencies installed, clone the project and install the required packages:
+
+```sh
+git clone https://github.com/opeolluwa/skylite.git
+cd skylite # navigate to the cloned directory
+yarn install # install the dependencies
+yarn tauri dev # run the application locally
+
+```
 
 ### Installing
 
-- How/where to download your program
-- Any modifications needed to be made to files/folders
+Download the latest release [release page](https://github.com/opeolluwa/skylite/releases)
 
 ### Executing program
 
-- How to run the program
-- Step-by-step bullets
-
-```
-code blocks for commands
-```
-
-## Documentation
-
-Describe any special instructions that are necessary to install a software package on your computer (if applicable).
-
-## Help
-
-Any advise for common problems or issues.
-
-```
-command to run if program contains helper info
-```
-
-## Authors
-
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-- 0.2
-  - Various bug fixes and optimizations
-  - See [commit change]() or See [release history]()
-- 0.1
-  - Initial Release
+- Create Wifi Hotspot on your mobile
+- Connect a laptop to the Phone's Wifi Hotspot
+- Visit the displayed URL or scan the QR code
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the [GNU GENERAL PUBLIC LICENSE Version 3](./LICENSE) License - see the LICENSE.md file for details
 
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
-        
+The project is adapted from [another application](https://github.com/opeolluwa/filesync) I'm building for cross-platform file transfer on PC's
