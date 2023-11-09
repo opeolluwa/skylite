@@ -16,7 +16,7 @@ await relaunch()
   </Layout>
   <footer class="bg-[#ddd] dark:bg-[#222] text-gray-600">
     <button @click="refresh" class="dark:bg-[#222]">Refresh</button>
-    <button @click="close" class="dark:bg-[#222] hover:bg-transparent border-2 border-blue-500">Close</button>
+    <button @click="close" class="dark:bg-[#222] hover:bg-transparent border-2 border-[#FF3D00]">Close</button>
   </footer>
 </template>
 
