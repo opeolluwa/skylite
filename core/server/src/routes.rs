@@ -122,7 +122,7 @@ pub async fn file_upload_form() -> Html<&'static str> {
     <div class="container">
       <div class="form-container">
         <h2>File Upload Form</h2>
-        <form action="/upload" method="post" enctype="multipart/form-data">
+        <form action="/" method="post" enctype="multipart/form-data">
           <label for="file">Choose a file:</label>
           <input type="file" id="file" name="file" multiple required />
           <input type="submit" value="Upload" />

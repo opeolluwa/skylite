@@ -20,9 +20,9 @@
 }
 
 #app footer {
-    padding: 12px 50px !important;
+    padding: 15px 50px !important;
     padding-right: 10px !important;
-    font-size: 90%;
+    font-size: 80%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -37,7 +37,9 @@
     width: 70px;
     padding: 1px;
     border: none;
-    background: #b7b7b7;
+    background: #111111;
+    padding: 3px;
+    outline: none;
 
 }
 
@@ -46,7 +48,10 @@
 }
 
 #app footer button:hover {
-    filter: drop-shadow(0 0 2em #747bff);
+    filter: drop-shadow(0 0 2em #747bff) !important;
 }
 
-
+#app footer button:last-child {
+    border: 1.2px solid #787ef8;
+    background: transparent;
+}

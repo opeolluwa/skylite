@@ -10,9 +10,12 @@ version = "0.0.0"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [workspace]
-members = ["server", "ipc"]
+members = ["server", "ipc", "utils"]
 
 [workspace.dependencies]
+lazy_static = "1.4.0"
+serde = {version = "1.0", features = ["derive"] }
+serde_json = "1.0"
 tauri = {version = "1.2", features = ["api-all"] }
 
 [build-dependencies]
@@ -23,7 +26,7 @@ lazy_static = "1.4.0"
 serde = {version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 server = {path = "./server"}
-tauri = {version = "1.2", features = ["shell-open"] }
+tauri = {version = "1.2", features = [ "process-relaunch", "process-exit", "shell-open"] }
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem
 # DO NOT REMOVE!!

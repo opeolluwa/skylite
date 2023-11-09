@@ -11,7 +11,6 @@ use local_ip_address::local_ip;
 use lazy_static::lazy_static;
 mod router;
 mod routes;
-mod utils;
 
 lazy_static! {
     /**

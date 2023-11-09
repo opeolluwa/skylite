@@ -3,8 +3,6 @@ use std::fmt::{self};
 use std::fs::File;
 use std::path::{Path, PathBuf};
 
-pub mod fs;
-pub mod shell;
 /// data structure of response to return from Tauri Core
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]

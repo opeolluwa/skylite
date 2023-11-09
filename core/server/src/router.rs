@@ -10,7 +10,7 @@ use crate::routes::{accept_file_upload, download_file, file_upload_form, get_fil
 // the app is moved here to allow sharing across test modules
 pub fn app() -> Router {
     Router::new()
-        .route("/upload", post(accept_file_upload).get(file_upload_form))
+        .route("/", post(accept_file_upload).get(file_upload_form))
         .route("/api/download", get(download_file))
         .route("/api/file", get(get_file))
 }
