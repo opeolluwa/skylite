@@ -1,9 +1,11 @@
+
 use reqwest::Method;
 
 use tower_http::cors::Any;
 use tower_http::cors::CorsLayer;
 use tracing_subscriber::prelude::__tracing_subscriber_SubscriberExt;
 use tracing_subscriber::util::SubscriberInitExt;
+
 
 use axum::extract::DefaultBodyLimit;
 use local_ip_address::local_ip;
@@ -20,7 +22,7 @@ lazy_static! {
  * Herein the server port made globally available, this allow for ease of sharing same with file upload directory
  */
     pub static ref SERVER_PORT: u16 = 2105;
-    pub static ref UPLOAD_DIRECTORY: std::string::String = String::from("share");
+    pub static ref UPLOAD_DIRECTORY: std::string::String = String::from("skylite");
 }
 
 /**
@@ -50,6 +52,8 @@ pub async fn run() {
     let file_size_limit = 10 * 1024 * 1024 * 1024;
     let file_limit = DefaultBodyLimit::max(file_size_limit);
 
+
+
     //  run the https server on localhost then feed off the connection using the wifi gateway, the same way Vite/Vue CLI would do the core server
     // this is currently achieved by binding the server to the device default ip address
     let my_local_ip = local_ip().unwrap();
@@ -62,14 +66,13 @@ pub async fn run() {
 
     // build our application with the required routes
     let app = router::app()
+    /*   .fallback_service(ServeDir::new(assets_dir).append_index_html_on_directories(true)) */
         .layer(file_limit)
         .layer(cors_layer)
         .layer(tower_http::trace::TraceLayer::new_for_http());
     // .fallback(handle_404);
 
-    // add a fallback service for handling routes to unknown paths
-    // let app = app.fallback(handle_404);
-
+  
     // run the server
     axum::Server::bind(&ip_address)
         .serve(app.into_make_service())
