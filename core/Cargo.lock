@@ -3437,6 +3437,7 @@ dependencies = [
 name = "share"
 version = "0.0.0"
 dependencies = [
+ "ipc",
  "lazy_static",
  "serde",
  "serde_json",
