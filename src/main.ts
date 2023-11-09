@@ -9,10 +9,6 @@ import router from "./router";
 
 import { emit, listen } from "@tauri-apps/api/event";
 
-const unlisten = await listen("click", (event) => {
-  // event.event is the event name (useful if you want to use a single callback fn for multiple event types)
-  // event.payload is the payload object
-});
 
 (async () => {
   await listen("device-connected", (event) => {
