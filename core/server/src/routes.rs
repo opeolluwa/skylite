@@ -78,7 +78,7 @@ pub async fn file_upload_form() -> Html<&'static str> {
         justify-content: center;
         min-height: 100vh;
         background: #f2f2f2;
-        padding: 10px 15px;
+        padding: 10px 20px;
       }
 
       ::selection {
@@ -190,7 +190,7 @@ pub async fn file_upload_form() -> Html<&'static str> {
   </head>
   <body>
     <div class='wrapper'>
-      <header>File Uploader JavaScript</header>
+      <header>File Uploader</header>
       <form action='#'>
         <input class='file-input' type='file' name='file' hidden />
         <i class='fas fa-cloud-upload-alt'></i>

@@ -1,4 +1,4 @@
- # Title
+ # Skylite
 
 - [Description](#description)
 - [Getting Started](#getting-started)
@@ -14,7 +14,7 @@
 
 ## Description
 
-Description
+Cross platform file sharing application
 
 ## Getting Started
 
