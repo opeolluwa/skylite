@@ -1,8 +1,6 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use ipc;
-use server;
 
 use tauri::Manager;
 
@@ -29,8 +27,8 @@ fn main() {
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
-            ipc::server_address::server,
-            ipc::wifi::is_connected_to_wifi
+            command::server_address::server,
+            command::wifi::is_connected_to_wifi
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

@@ -2,7 +2,6 @@
 import { invoke } from '@tauri-apps/api'
 import { onMounted, ref } from 'vue';
 import { CommandData } from '../CommandData';
-import { message } from '@tauri-apps/api/dialog';
 import vueQr from 'vue-qr/src/packages/vue-qr.vue'
 import router from '../router';
 
@@ -10,16 +9,22 @@ const serverAddress = ref("");
 const isConnectedToWifi = ref(false);
 
 onMounted(async ()=>{
+  /**
+   * once the user interface is rendered, 
+   * see if there is connection to a WIfi 
+   * 
+   */
+await invoke('is_connected_to_wifi').then((response) =>{
+  const ipcResponse = response as unknown as CommandData<boolean>;
+  isConnectedToWifi.value = ipcResponse.data as unknown as boolean
+})
+
 await invoke('server').then((response) =>{
   const ipcResponse = response as unknown as CommandData<string>;
   serverAddress.value = ipcResponse.data as unknown as string
 })
 
-//TODO: fetch data from backend 
-await invoke('is_connected_to_wifi').then((response) =>{
-  const ipcResponse = response as unknown as CommandData<boolean>;
-  isConnectedToWifi.value = ipcResponse.data as unknown as boolean
-})
+
 
 //TODO: reroute on successfully connection
 function qrScanCallback(){
@@ -28,8 +33,14 @@ function qrScanCallback(){
 }
 
 // show a message dialog
-await message(`visit ${serverAddress.value} on the connected device`, { title: 'skylite', type: 'info' });
+// if (isConnectedToWifi){
+// (async()=>{
+//   await message(`visit ${serverAddress.value} on the connected device`, { title: 'skylite', type: 'info' });
+// })()
+// }
 })
+
+
 </script>
 
 <template>
@@ -52,10 +63,10 @@ await message(`visit ${serverAddress.value} on the connected device`, { title: '
   </div>
   <div v-else class="flex flex-col items-center justify-center h-[100%]">
     <div class="flex flex-col items-center justify-center">
-      <div>
+      <div class="cursor-pointer hover:[filter: drop-shadow(0 0 2em #FF3D00)]" id="qr" style="">
         <vue-qr bgSrc='/satellite.png' dot-scale="1" class="border-r-2 mb-3" :text="serverAddress" :size="200"></vue-qr>
       </div>
-      <h2 class="dark:text-gray-400">scan for visit <span class="text-[#FF3D00]">{{ serverAddress }}</span>
+      <h2 class="dark:text-gray-400">scan or visit <span class="text-[#FF3D00]">{{ serverAddress }}</span>
       </h2>
     </div>
   </div>
@@ -63,6 +74,9 @@ await message(`visit ${serverAddress.value} on the connected device`, { title: '
 
 
 <style scoped>
+/* #qr:hover{
+  filter: drop-shadow(0 0 2em #FF3D00)!important
+} */
 .loader {
   box-sizing: border-box;
   display: inline-block;
