@@ -1,15 +1,21 @@
 {
-  "name": "share",
+  "name": "skylite",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
+    "dev:pwa": "vite pwa",
+    "build:pwa": "vue-tsc --noEmit && vite build pwa",
+    "preview:pwa": "vite preview pwa",
+    "prebuild": "cd pwa && yarn && yarn build",
+    "predev": "yarn build:pwa",
     "tauri": "tauri"
   },
   "dependencies": {
+    "@nx/linter": "17.1.1",
     "@tauri-apps/api": "^1.2.0",
     "primevue": "^3.39.0",
     "vue": "^3.2.45",
@@ -17,14 +23,19 @@
     "vue-router": "4"
   },
   "devDependencies": {
+    "@nx/eslint-plugin": "17.1.1",
     "@tauri-apps/cli": "^1.2.2",
     "@types/node": "^18.7.10",
     "@vitejs/plugin-vue": "^4.0.0",
     "autoprefixer": "^10.4.16",
+    "nx": "17.1.1",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.5",
     "typescript": "^4.6.4",
     "vite": "^4.0.0",
     "vue-tsc": "^1.0.11"
+  },
+  "nx": {
+    "targets": {}
   }
 }
