@@ -10,7 +10,7 @@
     "dev:pwa": "vite pwa",
     "build:pwa": "vue-tsc --noEmit && vite build pwa",
     "preview:pwa": "vite preview pwa",
-    "prebuild": "yarn build:pwa",
+    "prebuild": "cd pwa && yarn && yarn build",
     "predev": "yarn build:pwa",
     "tauri": "tauri"
   },
