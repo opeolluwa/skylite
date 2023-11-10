@@ -1,4 +1,3 @@
-use axum::response::Html;
 use axum::{BoxError, Json};
 // get documents, audio, video, e.t.c and render the in the browser
 use axum::{extract::Query, http::StatusCode, response::IntoResponse};
@@ -53,13 +52,6 @@ pub async fn download_file(Query(params): Query<Params>) -> impl IntoResponse {
     Ok((headers, body))
 }
 
-// return an html page to receive file upload
-pub async fn file_upload_form() -> Html<&'static str> {
-    Html(
-        r#"  
-   "#,
-    )
-}
 
 // Handler that accepts a multipart form upload and streams each field to a file.
 pub async fn accept_file_upload(
