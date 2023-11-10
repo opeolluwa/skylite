@@ -1,5 +1,7 @@
 # Skylite
 
+![skylite](./skylite.png)
+
 - [Description](#description)
 - [Getting Started](#getting-started)
   - [Dependencies](#dependencies)
