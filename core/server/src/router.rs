@@ -14,8 +14,8 @@ pub fn app() -> Router {
     let assets_dir = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("views");
 
     Router::new()
-        .route("/", post(accept_file_upload).get(file_upload_form))
+        .fallback_service(ServeDir::new(assets_dir).append_index_html_on_directories(true))
+        .route("/hi", post(accept_file_upload).get(file_upload_form))
         .route("/api/download", get(download_file))
         .route("/api/file", get(get_file))
-        .fallback_service(ServeDir::new(assets_dir).append_index_html_on_directories(true))
 }
