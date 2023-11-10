@@ -592,6 +592,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "command"
+version = "0.1.0"
+dependencies = [
+ "local-ip-address",
+ "serde",
+ "serde_json",
+ "tauri",
+ "utils",
+]
+
+[[package]]
 name = "concurrent-queue"
 version = "2.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1813,17 +1824,6 @@ dependencies = [
  "hermit-abi",
  "libc",
  "windows-sys 0.48.0",
-]
-
-[[package]]
-name = "ipc"
-version = "0.1.0"
-dependencies = [
- "local-ip-address",
- "serde",
- "serde_json",
- "tauri",
- "utils",
 ]
 
 [[package]]
@@ -3437,7 +3437,7 @@ dependencies = [
 name = "share"
 version = "0.0.0"
 dependencies = [
- "ipc",
+ "command",
  "lazy_static",
  "serde",
  "serde_json",

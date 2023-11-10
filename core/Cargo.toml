@@ -10,7 +10,7 @@ version = "0.0.0"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [workspace]
-members = ["server", "ipc", "utils"]
+members = ["server", "command", "utils"]
 
 [workspace.dependencies]
 lazy_static = "1.4.0"
@@ -22,12 +22,12 @@ tauri = {version = "1.2", features = ["api-all"] }
 tauri-build = {version = "1.2", features = [] }
 
 [dependencies]
-ipc = {path = "./ipc"}
+command = {path = "./command"}
 lazy_static = "1.4.0"
 serde = {version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 server = {path = "./server"}
-tauri = {version = "1.2", features = [ "dialog-message", "process-relaunch", "process-exit", "shell-open"] }
+tauri = {version = "1.2", features = ["dialog-message", "process-relaunch", "process-exit", "shell-open"] }
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem
 # DO NOT REMOVE!!
