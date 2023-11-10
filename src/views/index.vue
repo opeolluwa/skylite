@@ -28,8 +28,14 @@ function qrScanCallback(){
 }
 
 // show a message dialog
-await message(`visit ${serverAddress.value} on the connected device`, { title: 'skylite', type: 'info' });
+if (isConnectedToWifi){
+(async()=>{
+  await message(`visit ${serverAddress.value} on the connected device`, { title: 'skylite', type: 'info' });
+})()
+}
 })
+
+
 </script>
 
 <template>
