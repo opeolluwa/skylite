@@ -11,7 +11,7 @@ use crate::routes::{accept_file_upload, download_file, get_file};
 
 // the app is moved here to allow sharing across test modules
 pub fn app() -> Router {
-    let assets_dir = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("views");
+    let assets_dir = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("assets");
 
     Router::new()
         .route("/upload", post(accept_file_upload))
