@@ -1,18 +1,21 @@
 {
   "name": "skylite",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
+    "build:all":"yarn nx run-many --target=build --all=true --projects=skylite",
     "dev:pwa": "vite pwa",
     "build:pwa": "vue-tsc --noEmit && vite build pwa",
     "preview:pwa": "vite preview pwa",
-    "prebuild": "cd pwa && yarn && yarn build",
+    "prebuild": "cd pwa && yarn && yarn build && cd ..",
     "predev": "yarn build:pwa",
-    "tauri": "tauri"
+    "lint": "eslint . --ext .ts",
+    "tauri": "tauri",
+    "lerna":"lerna"
   },
   "dependencies": {
     "@nx/linter": "17.1.1",
@@ -28,6 +31,7 @@
     "@types/node": "^18.7.10",
     "@vitejs/plugin-vue": "^4.0.0",
     "autoprefixer": "^10.4.16",
+    "lerna": "^7.4.2",
     "nx": "17.1.1",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.5",
