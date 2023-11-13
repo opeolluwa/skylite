@@ -12,6 +12,7 @@
     "build:pwa": "vue-tsc --noEmit && vite build pwa",
     "preview:pwa": "vite preview pwa",
     "prebuild": "yarn build:pwa",
+    "preinstall":"yarn --cwd pwa",
     "predev": "yarn build:pwa",
     "lint": "eslint . --ext .ts",
     "tauri": "tauri",
