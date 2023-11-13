@@ -8,11 +8,6 @@ const routes = [
     name: "IndexPage",
     component: IndexPage,
   },
-  {
-    path: "/upload",
-    name: "FileUploadPAge",
-    component:FileUploadPage,
-  },
 ];
 
 const router = createRouter({

@@ -5,7 +5,7 @@ import { VitePWA } from "vite-plugin-pwa";
 export default defineConfig({
   plugins: [vue(), VitePWA({ registerType: "autoUpdate" })],
   build: {
-    outDir: "core/server/assets",
+    outDir: "../core/server/assets",
   },
   server: {
     port: 5000,
