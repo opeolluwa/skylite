@@ -3,7 +3,7 @@ import { exit,relaunch } from '@tauri-apps/api/process';
 import { ask} from '@tauri-apps/api/dialog';
 
 async function close(){
-  const yes= await ask('Current file transfer would be lost. Do you still want to proceed?', { title: 'Close', type: 'warning' });
+  const yes= await ask('Current file transfer may be lost. Do you still want to proceed?', { title: 'Close', type: 'warning' });
   if(yes){
  await exit(1)
 

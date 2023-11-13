@@ -21,7 +21,7 @@ fileInput.onchange = ({ target }) => {
 
 function uploadFile(name) {
   let xhr = new XMLHttpRequest();
-  xhr.open("POST", "/");
+  xhr.open("POST", "/upload");
   xhr.upload.addEventListener("progress", ({ loaded, total }) => {
     let fileLoaded = Math.floor((loaded / total) * 100);
     let fileTotal = Math.floor(total / 1000);
