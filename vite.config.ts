@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import { join, resolve } from "path";
 
 const mobile =
   process.env.TAURI_PLATFORM === "android" ||
@@ -27,5 +28,12 @@ export default defineConfig(async () => ({
     minify: !process.env.TAURI_DEBUG ? "esbuild" : false,
     // produce sourcemaps for debug builds
     sourcemap: !!process.env.TAURI_DEBUG,
+    rollupOptions: {
+      input: {
+        main: join(__dirname, "index.html"),
+        upload: join(__dirname,"upload", "upload.html"),
+      },
+    
+    },
   },
 }));
