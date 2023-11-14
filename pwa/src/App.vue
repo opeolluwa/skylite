@@ -1,30 +1,49 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import Button from 'primevue/button';
+import TabMenu from 'primevue/tabmenu';
+import 'primeicons/primeicons.css'
+import {ref} from "vue";
+import Layout from "./components/Layout.vue";
+import {ShareIcon} from "@heroicons/vue/24/outline";
+import {MagnifyingGlassIcon as SearchIcon} from "@heroicons/vue/24/outline";
+import {ArrowUpTrayIcon as UploadIcon} from "@heroicons/vue/24/outline";
+//TODO: fetch form the backend
+const connectedDeviceName = ref("Sillicone");
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+<Layout>
+    <header class="h-[100px]">
+ <div class="flex justify-between items-center">
+   <h1 class="text-2xl font-bold leading">
+     {{connectedDeviceName}}
+   </h1>
+<div class="flex gap-[6px]">
+  <SearchIcon class="w-6 h-6"/>
+<!--  <UploadIcon class="w-6 h-6 " />-->
+<!--  <ShareIcon class="w-6 h-6 "/>-->
+</div>
+
+ </div>
+      <div class=" mt-[45px] flex flex-wrap justify-between -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+        <span class="inline-flex gap-2 items-center justify-center border-b-[#FF3D00] text-[#FF3D00]  border-b-2">
+          Images
+        </span>
+        <span class="inline-flex gap-2 items-center justify-center">
+          Audio
+        </span>
+        <span class="inline-flex gap-2 items-center justify-center">
+          Videos
+        </span>
+        <span class="inline-flex gap-2 items-center justify-center">
+          Documents
+        </span>
+      </div>
+    </header>
+
+</Layout>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
 </style>
