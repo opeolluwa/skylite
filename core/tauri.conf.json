@@ -1,17 +1,21 @@
 {
+
   "build": {
-    "beforeDevCommand": "yarn dev",
     "beforeBuildCommand": "yarn build",
+    "beforeDevCommand": "yarn dev",
     "devPath": "http://localhost:1420",
     "distDir": "../dist",
     "withGlobalTauri": false
   },
   "package": {
     "productName": "skylite",
-    "version": "0.5.7"
+    "version": "0.5.8"
   },
   "tauri": {
     "allowlist": {
+      "fs": {
+        "scope": ["$RESOURCE/*"]
+      },
       "all": false,
       "process": {
         "all": false,
@@ -40,6 +44,9 @@
         "icons/128x128@2x.png",
         "icons/icon.icns",
         "icons/icon.ico"
+      ],
+      "resources": [
+        "server/assets"
       ],
       "identifier": "com.skylite.app",
       "targets": "all"
