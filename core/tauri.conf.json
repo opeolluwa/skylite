@@ -9,7 +9,7 @@
   },
   "package": {
     "productName": "skylite",
-    "version": "0.5.8"
+    "version": "0.5.9"
   },
   "tauri": {
     "allowlist": {
