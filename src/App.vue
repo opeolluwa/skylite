@@ -1,4 +1,4 @@
-<script setup lang="ts">
+ <script setup lang="ts">
 import { exit,relaunch } from '@tauri-apps/api/process';
 import { ask} from '@tauri-apps/api/dialog';
 
