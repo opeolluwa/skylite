@@ -32,7 +32,7 @@ Once you have the dependencies installed, clone the project and install the requ
 ```sh
 git clone https://github.com/opeolluwa/skylite.git
 cd skylite # navigate to the cloned directory
-yarn install # install the dependencies
+yarn install && cd pwa && yarn install && cd ../ # install the dependencies
 yarn tauri dev # run the application locally
 
 ```
