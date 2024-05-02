@@ -1,30 +1,69 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import  {ref} from "vue";
+
+import TabView from 'primevue/tabview';
+import TabPanel from 'primevue/tabpanel';
+
+import {MagnifyingGlassIcon} from "@heroicons/vue/24/outline"
+const deviceName = ref("Sillicone")
+
+const tabs = [
+  {
+    title:"Video",
+    content:"  aliqua. Ut enim ad minExcepteur sint occaecat cupidatat non proident, sun"
+  },
+  {
+    title:"Audio",
+    content:"  aliqua. Ut enim ad minExcepteur sint occaecat cupidatat non proident, sun"
+  },
+  {
+    title:"Music",
+    content:"  aliqua. Ut enim ad minExcepteur sint occaecat cupidatat non proident, sun"
+  },
+  {
+    title:"Document",
+    content:"  aliqua. Ut enim ad minExcepteur sint occaecat cupidatat non proident, sun"
+  }
+]
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <header class="flex items-center justify-between px-[20px] py-[30px]">
+    <h1 class="">
+      {{deviceName}}
+    </h1>
+    <MagnifyingGlassIcon class="w-6 h-6"/>
+  </header>
+
+  <div class="card">
+    <TabView scrollable>
+      <TabPanel :header="tab.title" v-for="tab in tabs">
+        <p class="m-0">
+        {{tab.content}}
+        </p>
+      </TabPanel>
+
+
+
+    </TabView>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+
 </template>
 
+
+
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+header{
+  background: #F6F8FD;
+
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.p-tabview-nav {
+  color:red!important
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+h1{
+  line-height: 24px;
+  font-weight:600;
+  font-size:18px;
 }
 </style>

@@ -1,13 +1,10 @@
-import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import { VitePWA } from "vite-plugin-pwa";
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), VitePWA({ registerType: "autoUpdate" })],
-  build: {
-    outDir: "../core/server/assets",
-  },
-  server: {
-    port: 5000,
-  },
-});
+  plugins: [vue()],
+  build:{
+    outDir:"../core/server/views"
+  }
+})
